@@ -1,6 +1,7 @@
 "use client";
 
 import TestImageDisplay from '../../components/TestImageDisplay';
+import Link from 'next/link';
 
 export default function ImageTestPage() {
   return (
@@ -17,12 +18,12 @@ export default function ImageTestPage() {
         />
 
         <div className="mt-8 text-center">
-          <a
+          <Link
             href="/"
             className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
           >
             ← Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

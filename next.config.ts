@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  
   // Image configuration for external domains
   images: {
     remotePatterns: [
@@ -39,10 +40,11 @@ const nextConfig: NextConfig = {
     return config;
   },
   async rewrites() {
+    const backendUrl = process.env.NEXT_PUBLIC_API_URL || 'https://eennback-002-site1.atempurl.com';
     return [
       {
         source: '/api/backend/:path*',
-        destination: process.env.NEXT_PUBLIC_API_URL + '/api/:path*',
+        destination: `${backendUrl}/api/:path*`,
       },
     ];
   },
