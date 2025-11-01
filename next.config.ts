@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   /* config options here */
@@ -30,6 +31,12 @@ const nextConfig: NextConfig = {
   },
   // Exclude certain folders from being compiled
   webpack: (config, { dev, isServer }) => {
+    // Add path alias resolution
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@': path.resolve(__dirname, './src'),
+    };
+    
     // Only apply webpack config when not using turbopack
     if (!dev || isServer) {
       config.watchOptions = {
