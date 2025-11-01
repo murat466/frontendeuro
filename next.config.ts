@@ -34,7 +34,7 @@ const nextConfig: NextConfig = {
     // Add path alias resolution
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(process.cwd(), './src'),
     };
     
     // Only apply webpack config when not using turbopack
